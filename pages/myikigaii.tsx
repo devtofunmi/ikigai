@@ -124,7 +124,7 @@ export default function MyIkigaii() {
       >
         <h3 className="text-2xl font-bold mb-4">Explore Your Own Ikigai</h3>
         <p className="text-gray-300 mb-6">
-          Take a moment to reflect or journal your own Ikigai. You don’t have to figure it all out — just start from what you know:
+          Take a moment to reflect or journal your own Ikigai. You don’t have to figure it all out just start from what you know:
         </p>
         <ul className="space-y-4 text-left text-gray-200 text-lg">
           <li>💖 <strong>What do you love?</strong></li>
