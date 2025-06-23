@@ -121,7 +121,7 @@ export default function MyIkigaii() {
           <a
             href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
               'Here’s my Ikigai – what I love, what I’m good at, what the world needs, and what I can get paid for. ✨\n\n#MyIkigai #buildinpublic\n\n'
-            )}&url=${encodeURIComponent('https://yourdomain.com/myikigaii')}`}
+            )}&url=${encodeURIComponent('https://myikigaii.netlify.app/myikigaii')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-xl text-sm font-medium transition"
@@ -131,7 +131,7 @@ export default function MyIkigaii() {
 
           <a
             href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-              'https://yourdomain.com/myikigaii'
+              'https://myikigaii.netlify.app/myikigaii'
             )}`}
             target="_blank"
             rel="noopener noreferrer"

@@ -15,16 +15,16 @@ export default function Document() {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yourdomain.com/myikigaii" />
+        <meta property="og:url" content="https://myikigaii.netlify.app/myikigaii" />
         <meta property="og:title" content="My Ikigai – Crafted with Purpose ✨" />
         <meta property="og:description" content="Here’s how I align what I love, what I'm good at, what the world needs, and what I can be paid for." />
-        <meta property="og:image" content="https://yourdomain.com/myikigaii.png" />
+        <meta property="og:image" content="https://myikigaii.netlify.app/myikigaii.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="My Ikigai – Crafted with Purpose ✨" />
         <meta name="twitter:description" content="Discover how I align passion, skills, impact, and income." />
-        <meta name="twitter:image" content="https://yourdomain.com/myikigaii.png" />
+        <meta name="twitter:image" content="https://myikigaii.netlify.app/myikigaii.png" />
       </Head>
       <body className="antialiased bg-black text-white">
         <Main />
