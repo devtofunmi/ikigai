@@ -9,6 +9,16 @@ type Card = {
   content: string;
 };
 
+const containerVariants: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+};
+
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   show: {
@@ -23,6 +33,15 @@ const fadeIn: Variants = {
   show: {
     opacity: 1,
     transition: { duration: 0.8 },
+  },
+};
+
+const zoomIn: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.8, ease: 'easeOut' },
   },
 };
 
@@ -54,24 +73,38 @@ export default function MyIkigaii() {
     <main className="min-h-screen bg-animated-gradient text-white font-sans px-6 py-12">
       {/* Header */}
       <motion.header
-        className="text-center"
+        className="text-center relative"
         initial="hidden"
-        animate="show"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.5 }}
         variants={fadeIn}
       >
         <h1 className="text-4xl md:text-6xl font-bold mb-4">M y Iki gai</h1>
         <p className="text-lg md:text-xl text-gray-300">
           Code is my craft, but purpose is the fuel. Here’s how I’m aligning both.
         </p>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          className="absolute bottom-[-2rem] left-1/2 transform -translate-x-1/2 mt-10"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
+        >
+          <div className="text-white text-2xl">↓</div>
+        </motion.div>
       </motion.header>
 
-      {/* Cards Section */}
-      <section className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+      {/* Cards */}
+      <motion.section
+        className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.3 }}
+      >
         {cards.map((card, i) => (
           <motion.div
             key={i}
-            initial="hidden"
-            animate="show"
             variants={fadeUp}
             className={`bg-gradient-to-br ${card.color} rounded-2xl p-6 shadow-lg hover:scale-[1.03] transition-transform`}
           >
@@ -79,13 +112,14 @@ export default function MyIkigaii() {
             <p className="text-gray-100">{card.content}</p>
           </motion.div>
         ))}
-      </section>
+      </motion.section>
 
       {/* Reflect Section */}
       <motion.section
         className="mt-20 text-center max-w-2xl mx-auto"
         initial="hidden"
-        animate="show"
+        whileInView="show"
+        viewport={{ once: false }}
         variants={fadeIn}
       >
         <h3 className="text-2xl font-bold mb-4">Explore Your Own Ikigai</h3>
@@ -93,8 +127,8 @@ export default function MyIkigaii() {
           Take a moment to reflect or journal your own Ikigai. You don’t have to figure it all out — just start from what you know:
         </p>
         <ul className="space-y-4 text-left text-gray-200 text-lg">
-          <li>🌀 <strong>What do you love?</strong></li>
-          <li>🛠️ <strong>What are you good at?</strong></li>
+          <li>💖 <strong>What do you love?</strong></li>
+          <li>💡 <strong>What are you good at?</strong></li>
           <li>🌍 <strong>What does the world need?</strong></li>
           <li>💰 <strong>What can you get paid for?</strong></li>
         </ul>
@@ -104,15 +138,20 @@ export default function MyIkigaii() {
       <motion.section
         className="mt-20 text-center"
         initial="hidden"
-        animate="show"
+        whileInView="show"
+        viewport={{ once: false }}
         variants={fadeIn}
       >
         <h4 className="text-lg text-gray-300 mb-4">📸 Shareable Preview</h4>
-        <img
+
+        {/* Animate the image */}
+        <motion.img
           src="/myikigaii.png"
           alt="Ikigai Social Preview"
-          className="mx-auto rounded-xl border border-gray-800 shadow-lg max-w-full h-auto"
+          className="mx-auto rounded-xl border border-gray-800 shadow-lg max-w-full w-[600px] h-auto"
+          variants={zoomIn}
         />
+
         <p className="text-sm text-gray-400 mt-2 mb-6">
           Perfect for sharing on X or LinkedIn ✨
         </p>
@@ -144,7 +183,7 @@ export default function MyIkigaii() {
 
       {/* Footer */}
       <footer className="mt-20 text-center text-sm text-gray-400">
-        © {new Date().getFullYear()} Crafted with purpose ✨ by You.
+        © {new Date().getFullYear()} Crafted with purpose ✨ by <a className="hover:underline font-bold" href="https://www.tofunmi.xyz">Tofunmi</a>.
       </footer>
     </main>
   );
