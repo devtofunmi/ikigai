@@ -59,7 +59,7 @@ export default function MyIkigaii() {
         animate="show"
         variants={fadeIn}
       >
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">M y Iki gaii</h1>
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">M y Iki gai</h1>
         <p className="text-lg md:text-xl text-gray-300">
           Code is my craft, but purpose is the fuel. Here’s how I’m aligning both.
         </p>
